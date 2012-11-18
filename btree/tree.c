@@ -22,7 +22,9 @@ void inorder_tree(struct tree_node *node,
 {
 	if (node) {
 		inorder_tree(node->left,fnptr);
-		fnptr(node->data);
+		if (fnptr) {
+			fnptr(node->data);
+		}
 		inorder_tree(node->right,fnptr);
 	}
 }
@@ -31,7 +33,9 @@ void preorder_tree(struct tree_node *node,
 		   tree_fn fnptr)
 {
 	if (node) {
-		fnptr(node->data);
+		if (fnptr) {
+			fnptr(node->data);
+		}
 		preorder_tree(node->left,fnptr);
 		preorder_tree(node->right,fnptr);
 	}
@@ -43,7 +47,9 @@ void postorder_tree(struct tree_node *node,
 	if (node) {
 		postorder_tree(node->left,fnptr);
 		postorder_tree(node->right,fnptr);
-		fnptr(node->data);
+		if (fnptr) {
+			fnptr(node->data);
+		}
 	}
 }
 
@@ -51,6 +57,10 @@ void traverse_path(struct tree_node *node,
 		   tree_trav_fn fnptr)
 {
 	int ret;
+
+	if (fnptr == NULL) {
+		return;
+	}
 
 	do {
 		if (node) {
@@ -72,7 +82,9 @@ void destroy_tree(struct tree_node *node,
 {
 	if (node) {
 		struct tree_node *left = node->left, *right = node->right;
-		fnptr(node->data);
+		if (fnptr) {
+			fnptr(node->data);
+		}
 		free(node);
 		destroy_tree(left,fnptr);
 		destroy_tree(right,fnptr);

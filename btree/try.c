@@ -9,18 +9,13 @@ void print_node(void *data)
 	printf("Data:%d\n",*dataptr);
 }
 
-void destroy_node(void *data)
-{
-	
-}
-
 int traverse(void *data,
 	     char is_leaf)
 {
 	printf("data:%d\n",*(int *)data);
 	if (is_leaf)
 		return 0;
-	return 1;
+	return -1;
 }
 
 int main()
@@ -37,5 +32,5 @@ int main()
 	TREE_ADD(root, right, right);
 
 	traverse_path(root,traverse);
-	destroy_tree(root,destroy_node);
+	destroy_tree(root,NULL);
 }
