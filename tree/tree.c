@@ -1,6 +1,6 @@
 /*
  * File : tree.c
- * Desc : Generic implementation of a binary tree
+ * Desc : Generic implementation of a multiway tree
  * Auth : Furquan Shaikh
  * Date : 11/18/2012
  */

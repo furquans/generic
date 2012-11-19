@@ -1,6 +1,6 @@
 /*
  * File : tree.h
- * Desc : Header file for generic implementation of a binary tree
+ * Desc : Header file for generic implementation of a multiway tree
  * Auth : Furquan Shaikh
  * Date : 11/18/2012
  */
